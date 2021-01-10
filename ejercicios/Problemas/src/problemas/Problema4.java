@@ -5,6 +5,8 @@
  */
 package problemas;
 
+import java.util.Scanner;
+
 /**
  *
  * @author reroes
@@ -16,6 +18,60 @@ public class Problema4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+      Scanner entrada=new Scanner(System.in);
+        int opcion;
+        System.out.println("Inserte 1 para el calcular valor de la "
+                + "planilla de luz\n"
+                + "inserte 2 para calcular total de un inmueble: ");
+        opcion = entrada.nextInt();
+        switch (opcion) {
+            case 1:
+                calcularValorLuz();
+                break;
+            case 2:
+                calcularPredio();
+                break;
+        }
+    }
+    public static void calcularValorLuz() {
+        Scanner entrada=new Scanner(System.in);
+        String nombre;
+        String cedula;
+        double valorKilovatios;
+        double kilovatiosMes;
+        double valorPanilla;
+        System.out.println("Ingresar el nombre: ");
+        nombre = entrada.nextLine();
+        System.out.println("Ingresar numero de cédula : ");
+        cedula = entrada.nextLine();
+        System.out.println("Ingresar valor del kilovatio: ");
+        valorKilovatios = entrada.nextDouble();
+        System.out.println("Ingresar los kilovatios consumidos: ");
+        kilovatiosMes = entrada.nextDouble();
+        valorPanilla = valorKilovatios * kilovatiosMes;
+        System.out.printf("Cliente %s con cédula %s debe de pagar un "
+                + "valor de $%.2f\n",
+                nombre, cedula, valorPanilla);
+    }
+    public static void calcularPredio() {
+        Scanner entrada=new Scanner(System.in);
+        String nombre;
+        String cedula;
+        double inmueble;
+        double total;
+        System.out.println("Nombre del cliente: ");
+        nombre = entrada.nextLine();
+        System.out.println("Cédula del cliente: ");
+        cedula = entrada.nextLine();
+        System.out.println("Valor del inmueble: ");
+        inmueble = entrada.nextDouble();
+        total = inmueble * 0.2;
+        System.out.printf(" El Cliente %s"
+                + " con la cédula "
+                + "%s tiene un bien inmueble "
+                + "valorado en $%.2f "
+                + "y tiene por pagar un valor de $%.2f\n",
+                nombre, cedula, inmueble, total);
     }
     
 }
